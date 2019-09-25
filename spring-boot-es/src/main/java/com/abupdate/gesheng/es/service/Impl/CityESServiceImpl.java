@@ -4,17 +4,11 @@ import com.abupdate.gesheng.es.domain.City;
 import com.abupdate.gesheng.es.repositry.CityRepositry;
 import com.abupdate.gesheng.es.service.CityService;
 
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
-import org.elasticsearch.index.query.functionscore.ScoreFunctionBuilders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
 
 import java.util.List;
 
@@ -43,7 +37,7 @@ public class CityESServiceImpl implements CityService {
         // 分页参数
         Pageable pageable = new PageRequest(pageNumber, pageSize);
 
-        // Function Score Query
+       /* // Function Score Query
         FunctionScoreQueryBuilder functionScoreQueryBuilder = QueryBuilders.functionScoreQuery()
                 .add(QueryBuilders.boolQuery().should(QueryBuilders.matchQuery("cityname", searchContent)),
                         ScoreFunctionBuilders.weightFactorFunction(1000))
@@ -58,6 +52,7 @@ public class CityESServiceImpl implements CityService {
         LOGGER.info("\n searchCity(): searchContent [" + searchContent + "] \n DSL  = \n " + searchQuery.getQuery().toString());
 
         Page<City> searchPageResults = cityRepository.search(searchQuery);
-        return searchPageResults.getContent();
+        return searchPageResults.getContent();*/
+       return null;
     }
 }
